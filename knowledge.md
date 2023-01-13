@@ -14,3 +14,5 @@
    2 Cài đặt react-router-dom: npm i react-router-dom
    3 Đưa cấu hình routes ra ngoài
    4 Xây dựng cơ chế tải Layout
+7. Dựng khung layout mặc định
+   1 Cài thư viện classnames: npm i classnames
