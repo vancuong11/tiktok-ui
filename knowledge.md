@@ -16,3 +16,5 @@
    4 Xây dựng cơ chế tải Layout
 7. Dựng khung layout mặc định
    1 Cài thư viện classnames: npm i classnames
+8. Xây dựng UI Header
+   1 Cài thư viện tippy npm i @tippyjs/react

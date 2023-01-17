@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import images from '~/assets/images';
 import styles from './Header.module.scss';
 import Wrapper from '~/components/Popper/Wrapper';
+import Button from '~/components/Buttons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -60,7 +61,10 @@ function Header() {
                 </Tippy>
 
                 {/* action */}
-                <div className={cx('actions')}>action</div>
+                <div className={cx('actions')}>
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
+                </div>
             </div>
         </header>
     );
