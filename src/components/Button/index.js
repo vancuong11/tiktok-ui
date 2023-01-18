@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Buttons({
+function Button({
     to,
     href,
     primary = false,
@@ -21,7 +21,7 @@ function Buttons({
     children,
     ...passProgs
 }) {
-    let Comp = `Button`;
+    let Comp = `button`;
     const props = {
         onClick,
         ...passProgs,
@@ -63,4 +63,4 @@ function Buttons({
     );
 }
 
-export default Buttons;
+export default Button;

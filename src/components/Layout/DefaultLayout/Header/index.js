@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import images from '~/assets/images';
 import styles from './Header.module.scss';
 import Wrapper from '~/components/Popper/Wrapper';
-import Buttons from '~/components/Buttons';
+import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,6 +25,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -44,6 +59,18 @@ function Header() {
             setSearchResult([1, 2, 3]);
         }, 0);
     }, []);
+
+    // handle logic
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                // handle change to language
+                break;
+
+            default:
+                break;
+        }
+    };
 
     return (
         <header className={cx('wrapper')}>
@@ -86,10 +113,10 @@ function Header() {
 
                 {/* action */}
                 <div className={cx('actions')}>
-                    <Buttons text>Upload</Buttons>
-                    <Buttons primary>Log in</Buttons>
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
 
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
