@@ -104,11 +104,33 @@
 }
 
 .action-btn {
+    display: flex;
+    align-items: center;
     font-size: 2rem;
     color: #161823;
     padding: 4px 8px;
     background-color: transparent;
     cursor: pointer;
+}
+
+// inbox icon
+.notice-inbox {
+    position: relative;
+}
+.count-inbox {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--primary);
+    width: 25px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .user-avatar {

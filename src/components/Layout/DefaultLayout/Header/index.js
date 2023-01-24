@@ -14,19 +14,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
     faMagnifyingGlass,
-    faMessage,
     faSignOut,
     faSpinner,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import AccountItem from '~/components/AccountItem';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -156,12 +156,22 @@ function Header() {
                         <>
                             <Tippy content="Upload video" placement="bottom" delay={200}>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
-                            </button>
+                            <Tippy content="Tin nhắn" placement="bottom" delay={200}>
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy content="Hộp thư" placement="bottom" delay={200}>
+                                <button className={cx('action-btn')}>
+                                    <div className={cx('notice-inbox')}>
+                                        <InboxIcon className={cx('inbox-icon')}></InboxIcon>
+                                        <div className={cx('count-inbox')}>10</div>
+                                    </div>
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
@@ -173,10 +183,11 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7190357733610029062~c5_100x100.jpeg?x-expires=1674306000&x-signature=uwdL4vO3SzD2SbrBbSA5e9Q9wAE%3D"
                                 className={cx('user-avatar')}
                                 alt="Nguyễn Văn A"
+                                // fallback="https://avatars.githubusercontent.com/u/87743680?s=40&v=4"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
