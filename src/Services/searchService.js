@@ -1,8 +1,8 @@
-import * as requestHttp from '~/utils/https';
+import * as httpRequest from '~/utils/httpRequest';
 
 export const search = async (q, type = 'less') => {
     try {
-        const res = await requestHttp.get(`users/search`, {
+        const res = await httpRequest.get(`users/search`, {
             params: {
                 q,
                 type,
