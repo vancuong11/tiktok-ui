@@ -7,8 +7,9 @@ import Header from './Header';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
+const defaultFn = () => {};
 
-function Menu({ children, hideOnClick = false, items = [], onChange }) {
+function Menu({ children, hideOnClick = false, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -48,7 +49,7 @@ function Menu({ children, hideOnClick = false, items = [], onChange }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-scroll')}>{renderItems()}</div>
                     </Wrapper>
                 </div>
             )}
