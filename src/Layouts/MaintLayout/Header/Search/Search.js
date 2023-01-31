@@ -17,11 +17,11 @@ function Search() {
 
     // Start Handler search click
     const [searchValue, setSearchValue] = useState('');
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
     // fetch api
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     const handleClear = () => {
         setSearchValue('');
@@ -35,7 +35,7 @@ function Search() {
     // End Handler search click
 
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             return;
         }
         setLoading(true);
@@ -44,14 +44,14 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchService.search(debounced);
+            const result = await searchService.search(debouncedValue);
             setSearchResult(result);
 
             setLoading(false);
         };
         fetchApi();
         //
-    }, [debounced]);
+    }, [debouncedValue]);
 
     //
     const handleChange = (e) => {
